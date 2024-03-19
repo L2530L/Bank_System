@@ -21,7 +21,20 @@ class User:
     def get_user_money(self):
         return f'{self.__user_money}'
 
+
 class Bank:
+    def __init__(self, money_balance) -> None:
+        self.money_balance = money_balance
+
+    #withraw function change name ng attributes kapag mali
+    def withdraw(self, user, amount):
+        user.user_money += amount
+        self.money_balance -= amount
+
+    #deposit to
+    def deposite(self, user, amount):
+        user.user_money -= amount
+        self.money_balance += amount
 
     def __init__(self, money_balance):
         self.money_balance = money_balance
@@ -29,4 +42,3 @@ class Bank:
 b1 = Bank(money_balance=100)
 u1 = User(first_name='Juan', middle_name= 'J.', last_name='Tamad', password= 123, user_money= 50)
 
-print(u1.get_first_name())
