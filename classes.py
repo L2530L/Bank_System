@@ -7,15 +7,22 @@ class User:
         self.__user_money = user_money
 
        
-
+    @property    
     def full_name(self):
         return f'{self.__first_name} {self.__middle_name} {self.__last_name}'
-    
+
+    @property
     def get_password(self):
         return f'{self.__password}'
     
-    def get_user_money(self):
-        return f'{int(self.__user_money)}'
+    @property
+    def money(self):
+        return int(self.__user_money)
+    
+    @money.setter
+    def money(self, user_money):
+        (self.__user_money) = user_money
+    
 
 
 class Bank:
@@ -23,22 +30,25 @@ class Bank:
         self.money_balance = money_balance
 
     #withraw function change name ng attributes kapag mali
+    
+    
     def withdraw(self, user, amount):
-        user.get_user_money() += amount
+        user.money += int(amount)
         self.money_balance -= amount
 
     #deposit to
-    def deposite(self, user, amount):
-        user.get_user_money() -= amount
+    def deposit(self, user, amount):
+        user.money -= int(amount)
         self.money_balance += amount
 
 b1 = Bank(money_balance=100)
-u1 = User(first_name='Juan', middle_name= 'J.', last_name='Tamad', password= 123, 50)
+u1 = User(first_name='Juan', middle_name= 'J.', last_name='Tamad', password= 123, user_money=100)
 
 
-print(u1.full_name())
-b1.deposite(u1, 50)
-print(u1.get_user_money())
+
+b1.withdraw(u1, 100)
+print(f"user: {u1.money}")
+print (f"bank: {b1.money_balance}")
 
 #withdraw kuha or plus
 #deposit minus or bawas
