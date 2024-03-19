@@ -6,6 +6,8 @@ class User:
         self.__password = password
         self.__user_money = user_money
 
+       
+
     def full_name(self):
         return f'{self.__first_name} {self.__middle_name} {self.__last_name}'
     
@@ -13,7 +15,7 @@ class User:
         return f'{self.__password}'
     
     def get_user_money(self):
-        return f'{self.__user_money}'
+        return f'{int(self.__user_money)}'
 
 
 class Bank:
@@ -21,7 +23,6 @@ class Bank:
         self.money_balance = money_balance
 
     #withraw function change name ng attributes kapag mali
-    """
     def withdraw(self, user, amount):
         user.get_user_money() += amount
         self.money_balance -= amount
@@ -29,11 +30,14 @@ class Bank:
     #deposit to
     def deposite(self, user, amount):
         user.get_user_money() -= amount
-        self.money_balance += amount"""
+        self.money_balance += amount
 
 b1 = Bank(money_balance=100)
 u1 = User(first_name='Juan', middle_name= 'J.', last_name='Tamad', password= 123, 50)
 
+
+print(u1.full_name())
+b1.deposite(u1, 50)
 print(u1.get_user_money())
 
 #withdraw kuha or plus
