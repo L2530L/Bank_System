@@ -1,9 +1,32 @@
 class User:
-    def __init__(self) -> None:
-        pass
+    def __init__(self, first_name, middle_name, last_name, password, user_money):
+        self.__first_name = first_name
+        self.__middle_name = middle_name
+        self.__last_name = last_name
+        self.__password = password
+        self.__user_money = user_money
 
+    def get_first_name(self):
+        return f'{self.__first_name}'
+    
+    def get_middle_name(self):
+        return f'{self.__middle_name}'
+    
+    def get_last_name(self):
+        return f'{self.__last_name}'
+    
+    def get_password(self):
+        return f'{self.__password}'
+    
+    def get_user_money(self):
+        return f'{self.__user_money}'
 
 class Bank:
-    def __init__(self) -> None:
-        pass
 
+    def __init__(self, money_balance):
+        self.money_balance = money_balance
+
+b1 = Bank(money_balance=100)
+u1 = User(first_name='Juan', middle_name= 'J.', last_name='Tamad', password= 123, user_money= 50)
+
+print(u1.get_first_name())
