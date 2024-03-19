@@ -6,14 +6,8 @@ class User:
         self.__password = password
         self.__user_money = user_money
 
-    def get_first_name(self):
-        return f'{self.__first_name}'
-    
-    def get_middle_name(self):
-        return f'{self.__middle_name}'
-    
-    def get_last_name(self):
-        return f'{self.__last_name}'
+    def full_name(self):
+        return f'{self.__first_name} {self.__middle_name} {self.__last_name}'
     
     def get_password(self):
         return f'{self.__password}'
@@ -42,3 +36,5 @@ class Bank:
 b1 = Bank(money_balance=100)
 u1 = User(first_name='Juan', middle_name= 'J.', last_name='Tamad', password= 123, user_money= 50)
 
+#withdraw kuha or plus
+#deposit minus or bawas
