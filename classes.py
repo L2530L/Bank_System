@@ -6,10 +6,32 @@ class User:
         self.__password = password
         self.__user_money = user_money
 
-       
+
+    @property
+    def first_name(self):
+        return f"{self.__first_name}"
+    
+    @property
+    def middle_name(self):
+        return f"{self.__middle_name}"
+    
+    @property
+    def last_name(self):
+        return f"{self.__last_name}"
+    
+
     @property    
     def full_name(self):
         return f'{self.__first_name} {self.__middle_name} {self.__last_name}'
+    
+    #set the full name and spliting the fullname to 
+    @full_name.setter
+    def full_name(self, name):
+        last, first, middle = name.split(" ")
+        self.__last_name = last
+        self.__first_name = first
+        self.__middle_name = middle
+         
 
     @property
     def get_password(self):
@@ -22,8 +44,14 @@ class User:
     @money.setter
     def money(self, user_money):
         (self.__user_money) = user_money
-    
 
+
+    def create_account(self):
+        self.full_name = input("What is your name (Lastname Firstname Middlename): ")
+        #pass
+        
+      
+        
 
 class Bank:
     def __init__(self, money_balance:int) -> None:
