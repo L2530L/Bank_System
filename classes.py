@@ -86,10 +86,7 @@ class Bank:
 
     
     def check_password(self,account, password):
-        if password == account.password:
-            return True
-        else:
-            return False
+        return password == account.password
     
 
     def check_account(self, account_number):
